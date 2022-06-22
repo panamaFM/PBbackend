@@ -23,4 +23,4 @@ mongoose.connect(process.env.PBconstring, (err) =>
 );
 
 //listener
-app.listen(process.env.Port);
+app.listen(process.env.PORT || 3000);
