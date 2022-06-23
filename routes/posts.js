@@ -1,22 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const ThreadInfo = require('../models/posts');
+const gameInfo = require('../models/game');
 
-router.post('/newThread', async (req, res) => {
-    const newThread = new ThreadInfo({
+router.post('/newGame', async (req, res) => {
+    const newGame = new gameInfo({
         name : req.body.name,
-        reference : req.body.reference
+        reference : req.body.reference,
+        timestart: req.body.timestart,
+        timeend: req.body.timeend,
+        interval: req.body.interval,
+        status: req.body.status,
+        added: req.body.added,
+        edited: req.body.edited
     });
 
-    try
-    {
-        const savedNewThread = await newThread.save()
-        res.json(savedNewThread);
-        console.log('success');
+    try{
+        const savedNewGame = await newGame.save();
+        res.status(200).json("success");
     }
-    catch(err)
-    {
-        res.json(err);
+    catch(err){
+        res.status(400).json(err);
         console.log(err);
     }
 });

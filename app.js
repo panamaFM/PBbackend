@@ -12,10 +12,14 @@ app.use(bodyParser.json());
 //Import My Routes
 const getRoute = require('./routes/gets');
 const postRoute = require('./routes/posts');
+const deleteRoute = require('./routes/deletes');
+const updateRoute = require('./routes/updates');
 
 //My Request
-app.use('/post', postRoute)
-app.use('/get', getRoute)
+app.use('/post', postRoute);
+app.use('/get', getRoute);
+app.use('/delete', deleteRoute);
+app.use('/update', updateRoute);
 
 //Connect To My DB
 mongoose.connect(process.env.PBconstring, (err) => 
