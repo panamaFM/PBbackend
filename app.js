@@ -16,10 +16,10 @@ const deleteRoute = require('./routes/deletes');
 const updateRoute = require('./routes/updates');
 
 //My Request
-app.use('/post', postRoute);
-app.use('/get', getRoute);
-app.use('/delete', deleteRoute);
-app.use('/update', updateRoute);
+app.use('/game-add', postRoute);
+app.use('/game-get', getRoute);
+app.use('/game-del', deleteRoute);
+app.use('/game-upd', updateRoute);
 
 //Connect To My DB
 mongoose.connect(process.env.PBconstring, (err) => 
