@@ -44,7 +44,7 @@ router.get('/name/:gameName', async (req, res)=>{
 
 router.get('/result/:gameID', async (req, res)=>{
     try {
-        const gameResult = await gameResultInfo.find({ gameid: req.params.gameID });
+        const gameResult = await gameResultInfo.find({ gameid: req.params.gameID }).sort({gameDateTime: -1});
         //res.json(game);
         if(gameResult == null){
             res.status(204).json("not exist");
